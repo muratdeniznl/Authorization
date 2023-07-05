@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="fragments/head :: head"></head>
+<body>
+
+<nav th:fragment="menu">
+    <div class="row">
+        <div class="w-50 mx-auto">
+            <h3>
+
+                    <span sec:authorize ="isAuthenticated()">
+                        Hello <span sec:authentication="name"/>
+                    </span>
+
+                <a th:href="@{/}">Home</a>
+                <a sec:authorize ="hasAnyRole('ADMIN', 'USER')" th:href="@{/room}">Rooms</a>
+                <a sec:authorize ="hasAnyRole('ADMIN', 'USER')" th:href="@{/customer}">Customers</a>
+                <a sec:authorize ="hasAnyRole('ADMIN')" th:href="@{/reservation}">Reservations</a>
+                <a th:href="@{/blog}">Blog</a>
+                <a th:href="@{/contact}">Contact</a>
+                <a sec:authorize ="!isAuthenticated()" th:href="@{/login}">Login</a>
+                <a sec:authorize ="isAuthenticated()" th:href="@{/logout}">Logout</a>
+            </h3>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>

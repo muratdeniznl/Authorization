@@ -1,0 +1,75 @@
+[{
+  "className": "RoomType",
+  "classNames": "RoomTypes",
+  "packageName": "com.example.demo",
+  "endpointUri": "api",
+  "methodUri": "roomtype",
+  "members": [{
+    "annotations": ["@Id",
+      "@GeneratedValue(strategy = GenerationType.AUTO)"],
+    "name": "id",
+    "type": "long"
+  },
+  {
+    "name": "name",
+    "type": "String"
+  },
+  {
+    "annotations": [
+      "@ManyToOne"
+    ],
+    "name": "discount",
+    "type": "Discount"
+  }]
+},
+{
+  "className": "Discount",
+  "classNames": "Discountss",
+  "packageName": "com.example.demo",
+  "endpointUri": "api",
+  "methodUri": "discount",
+  "members": [{
+    "annotations": ["@Id",
+      "@GeneratedValue(strategy = GenerationType.AUTO)"],
+    "name": "id",
+    "type": "long"
+  },
+  {
+    "name": "name",
+    "type": "String"
+  },
+  {
+    "name": "percentage",
+    "type": "double"
+  },
+  {
+    "annotations": [
+      "@OneToMany"
+    ],
+    "name": "period",
+    "type": "Period"
+  }]
+
+},
+{
+  "className": "Period",
+  "classNames": "Periods",
+  "packageName": "com.example.demo",
+  "endpointUri": "api",
+  "methodUri": "period",
+  "members": [{
+    "annotations": ["@Id",
+      "@GeneratedValue(strategy = GenerationType.AUTO)"],
+    "name": "id",
+    "type": "long"
+  },
+  {
+    "name": "startDate",
+    "type": "LocalDate"
+  },
+  {
+    "name": "endDate",
+    "type": "LocalDate"
+  }]
+
+}]

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+    <meta th:include="~{fragments/head :: metas}" th:remove="tag"/>
+    <title>Reservation page</title>
+    <style th:include="~{fragments/head :: styles}" th:remove="tag"/>
+    <script th:include="~{fragments/head :: scripts}" th:remove="tag"/>
+    <script src="/js/reservation.js"></script>
+
+    <script>
+        $( document ).ready(function() {
+            console.log( "initializing" );
+            init();
+        });
+    </script>
+
+</head>
+<body>
+<div th:insert="~{fragments/menu :: menu}">
+</div>
+<div th:insert="~{fragments/header :: header}">
+</div>
+<p/>
+<div class="container">
+    <table id="reservation-table" class="display mx-auto">
+    </table>
+</div>
+<p/>
+
+<div class="container">
+    <form id="reservation-form" name="reservation-form">
+        <div class="form-group">
+            <input type="text" class="d-none form-control" id="id">
+        </div>
+        <div class="form-group">
+            <label for="checkInDate">Checkin:</label>
+            <input type="text" class="form-control" id="checkInDate" name="checkInDate" required="required" value="2023-05-09T11:20:33.107Z">
+        </div>
+        <div class="form-group">
+            <label for="checkOutDate">Checkout:</label>
+            <input type="text" class="form-control" id="checkOutDate" name="checkOutDate" required="required" value="2023-05-09T11:20:33.107Z">
+        </div>
+        <div class="form-group">
+            <label for="roomNumber">Room number:</label>
+            <input type="text" class="form-control" id="roomNumber" name="roomNumber" required="required">
+        </div>
+
+        <button type="button" class="btn btn-primary" id="create-reservation">Submit</button>
+
+    </form>
+</div>
+
+<div th:insert="~{fragments/footer :: footer}">
+</div>
+
+</body>
+</html>

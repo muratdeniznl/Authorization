@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta th:include="~{fragments/head :: metas}" th:remove="tag"/>
+  <title>Contact page</title>
+  <style th:include="~{fragments/head :: styles}" th:remove="tag"/>
+  <script th:include="~{fragments/head :: scripts}" th:remove="tag"/>
+
+</head>
+<body>
+<div th:insert="~{fragments/menu :: menu}">
+</div>
+<div th:insert="~{fragments/header :: header}">
+</div>
+
+<div class="w-50 mx-auto">
+  <p>This is the contact page</p>
+</div>
+
+<div th:insert="~{fragments/footer :: footer} ">
+</div>
+
+</body>
+</html>

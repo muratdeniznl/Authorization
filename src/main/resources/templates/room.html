@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+  <meta th:include="~{fragments/head :: metas}" th:remove="tag"/>
+  <title>Room page</title>
+  <style th:include="~{fragments/head :: styles}" th:remove="tag"/>
+  <script th:include="~{fragments/head :: scripts}" th:remove="tag"/>
+  <script src="/js/room.js"></script>
+
+  <script>
+        $( document ).ready(function() {
+            console.log( "initializing" );
+            init();
+        });
+    </script>
+
+</head>
+<body>
+<div th:insert="~{fragments/menu :: menu}">
+</div>
+<div th:insert="~{fragments/header :: header}">
+</div>
+
+<div class="container">
+  <form id="room-form" name="room-form">
+    <div class="form-group">
+      <label for="check-in-date">Check in date:</label>
+      <input type="text" class="form-control" id="check-in-date" name="check-in-date" required="required" value="2023-05-09">
+    </div>
+    <div class="form-group">
+      <label for="check-out-date">Check out date:</label>
+      <input type="text" class="form-control" id="check-out-date" name="check-out-date" value="2023-05-09">
+    </div>
+    <div class="form-group">
+      <label for="persons">Persons:</label>
+      <input type="number" class="form-control" id="persons" name="persons" min="1" max="8">
+    </div>
+    <div class="form-group">
+      <label for="disabled">Disabled:</label>
+      <input type="checkbox" class="form-control" id="disabled" name="disabled" value="false">
+    </div>
+    <div class="form-group">
+      <label for="smoking">Smoking:</label>
+      <input type="checkbox" class="form-control" id="smoking" name="smoking" value="false">
+    </div>
+    <button type="button" class="btn btn-primary" id="check-availability">Check availability</button>
+
+  </form>
+</div>
+<p/>
+
+<p/>
+<div class="container">
+  <table id="room-table" class="display mx-auto">
+  </table>
+</div>
+<p/>
+
+<div th:insert="~{fragments/footer :: footer}">
+</div>
+
+</body>
+</html>
